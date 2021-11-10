@@ -14,13 +14,23 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: Center(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
 
             GradientButton(
               color1: Color(0xff6C37CB),
               color2: Color(0xffE716A3),
               icon: Icons.check,
+            ),
+
+            ElevatedButton(
+              onPressed: () {},
+              child: Icon(Icons.calendar_today_outlined, color: Colors.orange[800], size: 30,),
+              style: ElevatedButton.styleFrom(
+                shape: CircleBorder(),
+                padding: EdgeInsets.all(20.0),
+                primary: Colors.white
+              )
             ),
 
             GradientButton(
