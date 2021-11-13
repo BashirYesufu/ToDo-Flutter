@@ -10,10 +10,63 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  List<Widget> todos = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+        title: Text('TODO', style: TextStyle(color: Colors.black),),
+      ),
+      endDrawer: Drawer(
+        child: ListView(
+          children: [
+           ListTile(
+               title: Text('NEW TASK'),
+           ),
 
+            ListTile(
+              title: Text('Icon'),
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GradientButton(
+                  color1: Color(0xFFFF9151),
+                  color2: Color(0xFFFF3489),
+                  size: 5,
+                  icon: Icons.add,
+                ),
+                GradientButton(
+                  color1: Color(0xFFFF9151),
+                  color2: Color(0xFFFF3489),
+                  size: 5,
+                  icon: Icons.add,
+                ),
+                GradientButton(
+                  color1: Color(0xFFFF9151),
+                  color2: Color(0xFFFF3489),
+                  size: 5,
+                  icon: Icons.add,
+                ),
+
+              ],
+            ),
+
+            ListTile(
+              title: Text('Name'),
+              subtitle: TextField(),
+            ),
+            Spacer(),
+            ListTile(
+              title: Text('Description'),
+
+            )
+          ],
+        ),
+      ),
       backgroundColor: Colors.grey,
       persistentFooterButtons: [
         Row(
@@ -41,7 +94,9 @@ class _HomeState extends State<Home> {
             GradientButton(
               color1: Color(0xff0D7AEA),
               color2: Color(0xff00D5F9),
-              action: () {},
+              action: () {
+                Scaffold.of(context).openDrawer();
+              },
               icon: Icons.add,
             ),
 
@@ -49,20 +104,10 @@ class _HomeState extends State<Home> {
         ),
       ],
 
-
-
       body: SingleChildScrollView(
         child: Column(
-
-              children: [
-                SizedBox(height: 100.0,),
-               TodoCard(),
-                TodoCard(),
-                TodoCard(),
-                TodoCard(),
-
-              ],
-            ),
+          children: todos,
+        ),
       ),
       );
   }
