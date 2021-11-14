@@ -3,7 +3,15 @@ import 'package:flutter/material.dart';
 import 'gradient_button.dart';
 
 class TodoCard extends StatelessWidget {
-  const TodoCard({Key? key}) : super(key: key);
+
+  final String nameText;
+  final String dateText;
+  final String timeText;
+  const TodoCard({Key? key,
+    required this.nameText,
+    required this.dateText,
+    required this.timeText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +34,15 @@ class TodoCard extends StatelessWidget {
               icon: Icons.sports_basketball,
             ),
 
-            Expanded(child: Text('Here is your ToDo.')),
+            Expanded(child: Text(nameText)),
 
             SizedBox(width: 20.0,),
 
             Column(
               children: [
-                Text('18 Jun', style: TextStyle(fontWeight: FontWeight.bold),),
+                Text(dateText, style: TextStyle(fontWeight: FontWeight.bold),),
                 SizedBox(height: 5.0,),
-                Text('10:26'),
+                Text(timeText),
               ],
             ),
           ],

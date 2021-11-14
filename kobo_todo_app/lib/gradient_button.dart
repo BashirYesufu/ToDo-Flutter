@@ -23,12 +23,18 @@ class GradientButton extends StatelessWidget {
           colors: [color1, color2],
         ),
       ),
-      child: RawMaterialButton(
-        elevation: 10.0,
-        padding: EdgeInsets.all(size),
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        child: Icon(icon, color: Colors.white,),
-        onPressed: action,
+      child: GestureDetector(
+
+        onTap: () {
+          Scaffold.of(context).openDrawer();
+        },
+        child: RawMaterialButton(
+          elevation: 10.0,
+          padding: EdgeInsets.all(size),
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          child: Icon(icon, color: Colors.white,),
+          onPressed: action,
+        ),
       ),
     );
   }
