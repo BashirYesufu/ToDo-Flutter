@@ -19,6 +19,10 @@ class _HomeState extends State<Home> {
   String time = '';
   List<Widget> todos = [];
 
+  var nameTextController = TextEditingController();
+  var dateTextController = TextEditingController();
+  var timeTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,14 +54,14 @@ class _HomeState extends State<Home> {
                   icon: Icons.add,
                 ),
                 GradientButton(
-                  color1: Color(0xFFFF9151),
-                  color2: Color(0xFFFF3489),
+                  color1: Colors.pink,
+                  color2: Colors.deepPurpleAccent,
                   size: 5,
                   icon: Icons.add,
                 ),
                 GradientButton(
-                  color1: Color(0xFFFF9151),
-                  color2: Color(0xFFFF3489),
+                  color1: Colors.blue,
+                  color2: Colors.blueGrey,
                   size: 5,
                   icon: Icons.add,
                 ),
@@ -67,7 +71,9 @@ class _HomeState extends State<Home> {
 
             ListTile(
               title: Text('Name'),
-              subtitle: TextField(),
+              subtitle: TextField(
+                controller: nameTextController,
+              ),
             ),
 
             SizedBox(height: 20.0,),
@@ -89,7 +95,9 @@ class _HomeState extends State<Home> {
 
             ListTile(
               title: Text('Date'),
-              subtitle: TextField(),
+              subtitle: TextField(
+                controller: dateTextController,
+              ),
             ),
 
             SizedBox(height: 20.0,),
@@ -97,7 +105,7 @@ class _HomeState extends State<Home> {
             ListTile(
               title: Text('Time'),
               subtitle: TextField(
-
+                controller: timeTextController,
               ),
             ),
 
@@ -112,9 +120,9 @@ class _HomeState extends State<Home> {
                     setState(() {
                       todos.add(
                         TodoCard(
-                            nameText: name,
-                            dateText: date,
-                            timeText: time,
+                            nameText: nameTextController.text,
+                            dateText: dateTextController.text,
+                            timeText: timeTextController.text,
                         ),
                       );
                       Navigator.of(context).pop();
