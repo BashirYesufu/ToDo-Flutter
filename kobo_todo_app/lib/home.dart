@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'gradient_button.dart';
+import 'gradient_button_with_text.dart';
 import 'todo_card.dart';
 
 class Home extends StatefulWidget {
@@ -59,11 +60,46 @@ class _HomeState extends State<Home> {
               title: Text('Name'),
               subtitle: TextField(),
             ),
-            Spacer(),
+
+            SizedBox(height: 20.0,),
+
             ListTile(
               title: Text('Description'),
+              subtitle: TextFormField(
+                maxLines: 5,
+                decoration: InputDecoration(fillColor: Colors.white,
+                    hintText: 'Enter your description',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(0))
+                    )
+                ),
+              ),
+            ),
 
-            )
+            SizedBox(height: 20.0,),
+
+            ListTile(
+              title: Text('Date'),
+              subtitle: TextField(),
+            ),
+
+            SizedBox(height: 20.0,),
+
+            ListTile(
+              title: Text('Time'),
+              subtitle: TextField(),
+            ),
+
+            SizedBox(height: 50.0,),
+
+            ListTile(
+              title: GradientButtonWithText(
+                text: 'Add',
+                onPressed: () {},
+              ),
+
+            ),
+
           ],
         ),
       ),
@@ -112,3 +148,5 @@ class _HomeState extends State<Home> {
       );
   }
 }
+
+
